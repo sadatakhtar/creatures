@@ -1,0 +1,36 @@
+.input_form > input{
+    height: 25px;
+    margin-right: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    outline: none;
+    
+}
+.input_form > select {
+    height: 31px;
+    padding-left: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+    background-color: #b39c4c ;
+    border-radius: 5px;
+}
+
+.input_form > button {
+    height: 32px;
+    width: 100px;
+    margin-left: 10px;
+    background-color: #4c63b3;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.input_form > button:hover{
+    background-color: skyblue;
+    color: #111;
+    
+}
+.hiddenDisplay{
+    color: #4c63b3;
+   
+}

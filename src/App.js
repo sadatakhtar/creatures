@@ -1,23 +1,47 @@
-import logo from './logo.svg';
+import React, { useState, useEffect} from 'react';
+import Input from './components/Input';
 import './App.css';
+import ReturnDisplayData from './components/ReturnDisplayData';
 
 function App() {
+  const [name, setName] = useState("");
+  const [fetchedData, setFetchedData] = useState([]);
+  const [animal, setAnimal] = useState("");
+  const [getCreatureHook, setGetCreatureHook] = useState(false);
+  const [legs, setLegs] = useState("");
+
+
+  useEffect(() => {
+    fetch("https://lowly-foam-badger.glitch.me/creatures")
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      setFetchedData(data);
+      
+    })
+    .catch(err => {
+      console.error(err);
+      console.log('Error!!!');
+    })
+  }, [getCreatureHook]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Creatures client</h1>
+      <Input 
+        name={name} 
+        setName={setName} 
+        animal={animal} 
+        setAnimal={setAnimal}
+        getCreatureHook={getCreatureHook}
+        setGetCreatureHook={setGetCreatureHook}
+        legs={legs}
+        setLegs={setLegs}
+      />
+      <ReturnDisplayData fetchedData={fetchedData}/>
     </div>
   );
 }
